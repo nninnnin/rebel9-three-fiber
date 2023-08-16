@@ -2,14 +2,18 @@ import { createRoot } from "react-dom/client";
 import { Canvas, Vector3 } from "@react-three/fiber";
 import { PerspectiveCamera, MapControls, SpotLight } from "@react-three/drei";
 
-import LosCar from "../assets/images/los-car.jpeg";
 import Panel from "./Panel";
 import Floor from "./Floor";
 import mapPanelPositions from "../utils/mapPanelPositions";
+import LosCar from "../assets/images/los-car.jpeg";
+import WorkBunnyBye from "../assets/images/work-bye-bunny.jpg";
+import Noeul from "../assets/images/noeul.jpg";
+import IBMVideo from "../assets/videos/ibm.mp4";
+import MSVideo from "../assets/videos/ms.mp4";
 
 export interface PanelInterface {
   id: number;
-  mediaType: "image" | "color" | "video";
+  mediaType: "image" | "color" | "video" | "youtube";
   source: string;
 }
 
@@ -21,28 +25,28 @@ const panels: Array<PanelInterface> = [
   },
   {
     id: 2,
-    mediaType: "image",
-    source: LosCar,
+    mediaType: "video",
+    source: IBMVideo,
   },
   {
     id: 3,
     mediaType: "image",
-    source: LosCar,
+    source: WorkBunnyBye,
   },
   {
     id: 4,
-    mediaType: "image",
-    source: LosCar,
+    mediaType: "color",
+    source: "violet",
   },
   {
     id: 5,
     mediaType: "image",
-    source: LosCar,
+    source: Noeul,
   },
   {
     id: 6,
-    mediaType: "image",
-    source: LosCar,
+    mediaType: "video",
+    source: MSVideo,
   },
 ];
 
