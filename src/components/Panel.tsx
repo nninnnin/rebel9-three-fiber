@@ -1,7 +1,12 @@
 import { Image, Text } from "@react-three/drei";
+import { Vector3 } from "@react-three/fiber";
 import { PanelInterface } from "./App";
 
-const Panel = ({ panel }: { panel: Omit<PanelInterface, "mediaType"> }) => {
+const Panel = ({
+  panel,
+}: {
+  panel: PanelInterface & { position: Vector3 };
+}) => {
   return (
     <mesh position={panel.position}>
       <meshStandardMaterial />
