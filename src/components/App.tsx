@@ -78,6 +78,7 @@ function App() {
         <MapControls enablePan={false} />
 
         <ambientLight intensity={1.5} />
+        {/* @ts-ignore */}
         <SpotLight
           color="#fff"
           position={[0, 5, 10]}
