@@ -1,6 +1,6 @@
 import { createRoot } from "react-dom/client";
 import { Canvas, Vector3 } from "@react-three/fiber";
-import { PerspectiveCamera, MapControls } from "@react-three/drei";
+import { PerspectiveCamera, MapControls, SpotLight } from "@react-three/drei";
 
 import LosCar from "../assets/images/los-car.jpeg";
 import Panel from "./Panel";
@@ -48,40 +48,47 @@ const panels: Array<PanelInterface> = [
 
 const panelsLeft: Array<PanelInterface & { position: Vector3 }> =
   mapPanelPositions(panels.slice(0, 3), {
-    x: { start: -1.8, gap: -0.1 },
+    x: { start: -2, gap: -0.05 },
     y: { start: 0, gap: 0 },
-    z: { start: 0.6, gap: 1.6 },
+    z: { start: -4, gap: 3.5 },
   });
 
 const panelsRight: Array<PanelInterface & { position: Vector3 }> =
   mapPanelPositions(panels.slice(3, 6), {
-    x: { start: 1.8, gap: 0.1 },
+    x: { start: 2, gap: 0.05 },
     y: { start: 0, gap: 0 },
-    z: { start: 0.6, gap: 1.6 },
+    z: { start: -4, gap: 3.5 },
   });
 
 function App() {
   return (
     <div id="canvas-container">
-      <Canvas dpr={[1, 1.5]}>
+      <Canvas>
         <PerspectiveCamera
           makeDefault
           position={[0, 0, 10] as [number, number, number]}
-          fov={60}
+          fov={40}
           near={0.1}
           far={100}
         />
-        <MapControls />
+        <MapControls enablePan={false} />
 
-        <color attach="background" args={["#fff"]} />
+        <ambientLight intensity={1.5} />
+        <SpotLight
+          color="#fff"
+          position={[0, 5, 10]}
+          distance={1000}
+          intensity={1000}
+          penumbra={1}
+        />
         <Floor />
 
         {panelsLeft.map((panel) => {
-          return <Panel panel={panel} />;
+          return <Panel key={panel.id} panel={panel} />;
         })}
 
         {panelsRight.map((panel) => {
-          return <Panel panel={panel} />;
+          return <Panel key={panel.id} panel={panel} />;
         })}
       </Canvas>
     </div>
