@@ -3,7 +3,7 @@
 ## Requirements
 
 - [x] Canvas에 바닥 색상을 칠합니다. (#AAAAAA)
-- [ ] Canvas에 6개의 Panel wall 을 세웁니다.
+- [x] Canvas에 6개의 Panel wall 을 세웁니다.
 - [ ] 6개의 Panel wall은 예제 링크와 동일하게 위치시킵니다.
 - [ ] 각각 Panel 에는 다음과 같은 내용이 들어가 있습니다.
       a. Color: 색상
